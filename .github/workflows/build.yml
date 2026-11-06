@@ -14,7 +14,7 @@ jobs:
           java-version: 17
       - name: Unzip project (if uploaded as a zip)
         run: |
-          if [ -f MeeraAI.zip ]; then unzip -q -o MeeraAI.zip -d _src; fi
+          for z in *.zip; do [ -f "$z" ] && unzip -q -o "$z" -d _src; done || true
       - name: Find project folder
         id: proj
         run: |
